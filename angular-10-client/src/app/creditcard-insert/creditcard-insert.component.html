@@ -1,0 +1,105 @@
+
+<div class="wrapper">
+  <div class="col-md-4 offset-md-3">
+      <h4 style="color:red;"> Book your Movie Here:</h4>
+      <form (ngSubmit) = "onSubmit()">
+
+          <div class="form-group">
+              <label style="color:black;">Select Movies</label>
+              <input list="Movies"  [(ngModel)] = "cr.mname" name = "mname"  id = "mname" class="form-control"
+               required>
+                  <datalist id="Movies">
+                      <option value="No means No"></option>
+                      <option value="Roohi"></option>
+                      <option value="Flight"></option>
+                  </datalist>
+          </div>
+
+          <div class="form-group">
+              <label style="color:black;">Select Dates</label>
+              <input list="dates"  [(ngModel)] = "cr.date" name = "mname"  id = "date" class="form-control"
+               required>
+                  <datalist id="dates">
+                      <option value="06/04"></option>
+                      <option value="07/04"></option>
+                      <option value="08/04"></option>
+                  </datalist>
+          </div>
+          <div class="form-group">
+            <label style="color:black;">Select Time</label>
+            <input list="times"  [(ngModel)] = "cr.time" name = "time"  id = "time" class="form-control"
+             required>
+                <datalist id="times">
+                    <option value="9:00 AM"></option>
+                    <option value="12:30 PM"></option>
+                    <option value="5:00 Pm"></option>
+                </datalist>
+        </div>
+
+        <div class="form-group">
+            <label style="color:black;">Select Seats</label>
+            <input list="seats"  [(ngModel)] = "cr.seats" name = "seats"  id = "seats" class="form-control"
+             required>
+                <datalist id="seats">
+                    <option value="1"></option>
+                    <option value="2"></option>
+                    <option value="3"></option>
+                    <option value="4"></option>
+                    <option value="5"></option>
+                </datalist>
+        </div>
+        <h4 style="color:red;"> Make your Payment  Here:</h4>
+
+    <div class="form-group">
+        <label style="color:black;">Card-Holder-Name</label>
+        <input type="text" class ="form-control" id = "username"
+            [(ngModel)] = "cr.username" name = "username" required #username= "ngModel"
+            [class.is-invalid]="username.invalid && username.touched">
+             <small class="text-danger" [class.d-none]="username.valid || username.untouched">required</small>
+    </div>
+
+    <div class="form-group">
+        <label style="color:black;">Card-Number</label>
+        <input type="number"  (keyup)="OnInput($event.target.value)" class ="form-control" id = "cardnumber"
+            [(ngModel)] = "cr.cardnumber" name = "cardnumber" required #cardnumber= "ngModel"
+            [class.is-invalid]="cardnumber.invalid && cardnumber.touched">
+             <small class="text-danger" [class.d-none]="cardnumber.valid || cardnumber.untouched">required</small>
+    </div>
+    <div class="form-group">
+      <label style="color:black;">Expiry-Month</label>
+      <input type="number" class ="form-control" id = "expirymonth"
+          [(ngModel)] = "cr.expirymonth" name = "expirymonth" required  #expirymonth= "ngModel"
+          [class.is-invalid]="expirymonth.invalid && expirymonth.touched">
+           <small class="text-danger" [class.d-none]="expirymonth.valid || expirymonth.untouched">required</small>
+  </div>
+
+  <div class="form-group">
+      <label style="color:black;">Expiry-Year</label>
+      <input type="number" class ="form-control" id = "expiryyear"
+          [(ngModel)] = "cr.expiryyear" name = "expiryyear" required #expiryyear= "ngModel"
+          [class.is-invalid]="expiryyear.invalid && expiryyear.touched">
+           <small class="text-danger" [class.d-none]="expiryyear.valid || expiryyear.untouched">required</small>
+  </div>
+
+  <div class="form-group">
+    <label style="color:black;">CVV</label>
+    <input type="password" class ="form-control" id = "cvv"
+        [(ngModel)] = "cr.cvv" name = "cvv" required #cvv= "ngModel"
+        [class.is-invalid]="cvv.invalid && cvv.touched">
+         <small class="text-danger" [class.d-none]="cvv.valid || cvv.untouched">required</small>
+</div>
+
+<div class="form-group">
+    <label style="color:black;">Pay-Ammount</label>
+    <input type="number" class ="form-control" id = "payammount"
+        [(ngModel)] = "cr.payammount" name = "payammount" required #payammount= "ngModel"
+        [class.is-invalid]="payammount.invalid && payammount.touched">
+         <small class="text-danger" [class.d-none]="payammount.valid || payammount.untouched">required</small>
+</div>
+
+<button class = "btn btn-success" type ="submit">Pay</button>
+
+</form>
+</div>
+
+</div>
